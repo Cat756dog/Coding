@@ -50,8 +50,8 @@ class Remainder: #Modulus
         return self.one % self.two
 class RoundedDivision: #Floor Division
     def __init__(self, one, two):
-        self.one = float(one)
-        self.two = float(two)
+        self.one = int(one)
+        self.two = int(two)
     def description(self):
         return "Rounded Division"
     def calculate(self):
