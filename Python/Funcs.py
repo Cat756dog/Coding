@@ -68,32 +68,32 @@ class Exponents:
         return self.one ** self.two
 class ScaleConverter:
     def __init__(self, units_from, units_to, factor):
-        self.units_from = units_from
-        self.units_to = units_to
-        self.factor = factor
+        self.units_from = float(units_from)
+        self.units_to = float(units_to)
+        self.factor = float(factor)
     def description(self):
         return f"Convert {self.units_from} to {self.units_to}"
-    def convert(self, value):
+    def calculate(self, value):
         return value * self.factor
 class ScaleAndOffsetConverter(ScaleConverter):
     def __init__(self, units_from, units_to, factor, offset):
         ScaleConverter.__init__(self, units_from, units_to, factor)
         self.offset = offset
-    def convert(self, value):
+    def calculate(self, value):
         return value * self.factor + self.offset
 class CelsiusToFahrenheit:
     def __init__(self, celsius):
         self.celsius = float(celsius)
     def description(self):
         return "Convert Celsius to Fahrenheit"
-    def convert(self):
+    def calculate(self):
         return (self.celsius * 9/5) + 32
 class FahrenheitToCelsius:
     def __init__(self, fahrenheit):
         self.fahrenheit = float(fahrenheit)
     def description(self):
         return "Convert Fahrenheit to Celsius"
-    def convert(self):
+    def calculate(self):
         return (self.fahrenheit - 32) * 5/9
 class PhoneNumbers:
     def __init__(self):
@@ -142,7 +142,6 @@ class FizzBuzzer: # Book
     if (self.n % 3)  == 0:
       x = "buzz"
     else: x = "fizz"
-    print(x)
     return x
 class HeckerTranslate:
     def __init__(self):
