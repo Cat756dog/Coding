@@ -168,3 +168,33 @@ class isPalindrome: #From book
             if dq.popleft() != dq.pop():
                 return False
         return True
+
+
+class CaesarCipher:
+    def __init__(self, shift=3):
+        self.shift = shift % 26
+
+    def description(self):
+        return f"Caesar cipher with shift {self.shift}"
+
+    def encrypt(self, text):
+        result = ""
+        for char in text:
+            if char.isalpha():
+                base = ord('A') if char.isupper() else ord('a')
+                shifted = (ord(char) - base + self.shift) % 26 + base
+                result += chr(shifted)
+            else:
+                result += char
+        return result
+
+    def decrypt(self, text):
+        result = ""
+        for char in text:
+            if char.isalpha():
+                base = ord('A') if char.isupper() else ord('a')
+                shifted = (ord(char) - base - self.shift) % 26 + base
+                result += chr(shifted)
+            else:
+                result += char
+        return result
