@@ -1,10 +1,11 @@
-from gpiozero import LED
+import gpiozero
 from time import sleep
 
-led = LED(17)  # GPIO 17
+led = gpiozero.LED(17)  # GPIO 17
 
 while True:
     led.on()
     sleep(1)
     led.off()
     sleep(1)
+    gpiozero
